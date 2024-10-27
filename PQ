@@ -1,0 +1,41 @@
+public class PQ-Formel {
+    public static void main(String[] args) {
+
+        if (args.length != 2) {
+            System.out.println("ERROR: genau zwei Argumente erwartet");
+            return; 
+        }
+
+        double p, q;
+        try {
+            p = Double.parseDouble(args[0]); 
+            q = Double.parseDouble(args[1]); 
+        } catch (NumberFormatException e) {
+            System.out.println("ERROR: Ungültige Eingabe. Bitte zwei gültige Zahlen eingeben!");
+            return; 
+        }
+
+    
+        double discriminant = (p * p) - (4 * q);
+
+      
+        if (discriminant < 0) {
+            System.out.println("Es gibt 0 Nullstellen.");
+        } else if (Math.abs(discriminant) < 0.0000001) {
+        
+            double x1 = -p / 2;
+            System.out.println(x1);
+            System.out.println("Es gibt 1 Nullstelle.");
+        } else {
+           
+            double sqrtDiscriminant = Math.sqrt(discriminant);
+            double x1 = (-p - sqrtDiscriminant) / 2;
+            double x2 = (-p + sqrtDiscriminant) / 2;
+            System.out.println(x1);
+            System.out.println(x2);
+            System.out.println("Es gibt 2 Nullstellen.");
+        }
+    }
+}
+
+
