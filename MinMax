@@ -1,0 +1,33 @@
+public class MinMax {
+    public static void main(String[] args) {
+      
+        if (args.length == 0) {
+            System.out.println("ERROR: Bitte mindestens eine Zahl als Argument übergeben");
+            return; 
+        }
+        int Min = Integer.MAX_VALUE;
+        int Max = Integer.MIN_VALUE;
+
+        
+        for (String arg : args) {
+            try {
+                int number = Integer.parseInt(arg); 
+                if (number < Min) {
+                    Min = number; 
+                }
+                if (number > Max) {
+                    Max = number; 
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("ERROR: Eine ungültige Zahl '" + arg + "' übergeben.");
+                return; 
+            }
+        }
+
+
+        System.out.println(Min);
+        System.out.println(Max);
+    }
+}
+
+
