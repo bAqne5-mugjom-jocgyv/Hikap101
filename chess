@@ -1,0 +1,38 @@
+public class chess {
+    public static void main(String[] args) {
+        
+        if (args.length != 1) {
+            System.out.println("ERROR: Bitte die Größe des Feldes als Argument übergeben!");
+            return; 
+        }
+
+      
+        int n;
+        try {
+            n = Integer.parseInt(args[0]);
+            if (n <= 0) {
+                System.out.println("ERROR: Die Größe muss eine positive ganze Zahl sein!");
+                return; 
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("ERROR: Ungültige Eingabe. Bitte eine ganze Zahl eingeben!");
+            return; 
+        }
+
+        
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                
+                if ((i + j) % 2 == 0) {
+                    System.out.print("*"); 
+                } else {
+                    System.out.print(" "); 
+                }
+            }
+            System.out.println(); 
+        }
+    }
+}
+
+
+
