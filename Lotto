@@ -1,0 +1,65 @@
+public class Lotto {
+    public static void main(String[] args) {
+ 
+        if (args.length != 2) {
+            System.out.println("ERROR: Genau zwei Argumente erforderlich.");
+            return;
+        }
+
+        try {
+            int n = Integer.parseInt(args[0]);
+            int m = Integer.parseInt(args[1]);
+
+           
+            if (n < 1 || n > m) {
+                System.out.println("ERROR: Ungültige Anzahl der zu ziehenden Kugeln.");
+                return;
+            }
+
+            int[] lottoZahlen = new int[n];
+            int anzahlGezogen = 0;
+
+
+            while (anzahlGezogen < n) {
+                int zahl = (int) (Math.random() * m) + 1; 
+              
+
+                boolean bereitsGezogen = false;
+                for (int i = 0; i < anzahlGezogen; i++) {
+                    if (lottoZahlen[i] == zahl) {
+                        bereitsGezogen = true;
+                        break;
+                    }
+                }
+
+            
+                if (!bereitsGezogen) {
+                    lottoZahlen[anzahlGezogen] = zahl;
+                    anzahlGezogen++;
+                }
+            }
+
+            for (int i = 0; i < n - 1; i++) {
+                for (int j = i + 1; j < n; j++) {
+                    if (lottoZahlen[i] > lottoZahlen[j]) {
+                        int temp = lottoZahlen[i];
+                        lottoZahlen[i] = lottoZahlen[j];
+                        lottoZahlen[j] = temp;
+                    }
+                }
+            }
+
+           
+            for (int i = 0; i < n; i++) {
+                System.out.print(lottoZahlen[i]);
+                if (i < n - 1) {
+                    System.out.print(", ");
+                }
+            }
+            System.out.println();
+
+        } catch (NumberFormatException e) {
+            System.out.println("Beide Argumente müssen ganze Zahlen sein.");
+        }
+    }
+}
