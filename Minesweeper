@@ -13,9 +13,9 @@ public class Minesweeper {
 
         /*
          Q: Welcher Fehlerfall wird in den folgenden 6 Codezeilen behandelt?
-         A:  Der Abschnitt überprüft, ob die Anzahl der gegebenen Spielfeldwerte 
-         mit der erwarteten Anzahl an Feldern übereinstimmt. Wenn dies nicht übereinstimmt,
-         kommt eine Fehlermeldung.
+         A:  Es wird in diesem Abschnitt überprüft, ob eine Übereinstimmung der Anzahl der gegebenen Spielfeldwerte 
+         mit der erwarteten Anzahl an Feldern vorliegt. Wenn dies nicht übereinstimmt,
+         wird eine Fehlermeldung erscheinen.
          */
         int expectedNumberOfFields = numberOfColumns * numberOfRows;
         int numberOfFieldsGiven = args.length - 2;
